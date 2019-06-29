@@ -34,15 +34,7 @@ def callback():
 @app_setting.handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text
-
-    if  "愛你" in text :
-        app_setting.line_bot_api.reply_message(event.reply_token,TextSendMessage("我也愛妳"))
-    elif "課表" in text:
-        app_setting.line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='https://imgur.com/G2DgyW9.jpg', preview_image_url='https://imgur.com/G2DgyW9.jpg'))
-    elif "三小" in text:
-        app_setting.line_bot_api.reply_message(event.reply_token,TextSendMessage("真兇！"))
-    else:
-        app_setting.line_bot_api.reply_message(event.reply_token,TextSendMessage(text))
+    app_setting.line_bot_api.reply_message(event.reply_token,TextSendMessage(text))
     
 
 
